@@ -2,9 +2,11 @@ let logoutButton = new LogoutButton();
 logoutButton.action = () => {ApiConnector.logout(()=>{location.reload()})}
 
 ApiConnector.current(reload => {
-    //console.log(reload.success)
+    //console.log(reload.success);
+    //console.log(reload.data);
+    //ProfileWidget.showProfile(reload.data);
     if (reload.success) {
-        ProfileWidget.showProfile(reload);
+        ProfileWidget.showProfile(reload.data);
     }
 });
 
