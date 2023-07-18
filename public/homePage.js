@@ -39,6 +39,17 @@ moneyManager.addMoneyCallback = data => {
     });
 }
 
+moneyManager.conversionMoneyCallback = data =>{
+    ApiConnector.convertMoney(data, response =>{
+        if (response.success) {
+            ProfileWidget.showProfile(response.data);
+            moneyManager.setMessage(response.success, `Успешный перевод: ${data.amount} ${data.currency}`);
+        } else {
+            moneyManager.setMessage(response.success, response.error);
+        }
+    })
+}
+
 let favoritesWidget = new FavoritesWidget();
 
 ApiConnector.getFavorites(response => {
