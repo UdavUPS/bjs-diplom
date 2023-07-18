@@ -26,3 +26,15 @@ function getExchangeRate() {
 getExchangeRate();
 setInterval(getExchangeRate, 60000);
 
+let moneyManager = new MoneyManager();
+
+moneyManager.addMoneyCallback = data => {
+    ApiConnector.addMoney(data, response =>{
+        if (response.success) {
+            ProfileWidget.showProfile(response.data);
+            moneyManager.setMessage(response.success, `Успешно пополнено: ${data.amount} ${data.currency}`);
+        } else {
+            moneyManager.setMessage(response.success, response.error);
+        }
+    });
+}
