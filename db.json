@@ -6,10 +6,10 @@
       "password": "demo",
       "id": 1,
       "balance": {
-        "RUB": 1130,
+        "RUB": 1000,
         "USD": 20,
         "EUR": 20,
-        "NTC": 3010
+        "NTC": 3000
       }
     },
     {
@@ -67,10 +67,10 @@
       "password": "123",
       "id": 6,
       "balance": {
-        "RUB": 0,
-        "USD": 0,
-        "EUR": 0,
-        "NTC": 0
+        "RUB": 1000,
+        "USD": 100,
+        "EUR": 60,
+        "NTC": 5
       }
     }
   ],

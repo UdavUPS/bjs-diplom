@@ -38,3 +38,14 @@ moneyManager.addMoneyCallback = data => {
         }
     });
 }
+
+let favoritesWidget = new FavoritesWidget();
+
+ApiConnector.getFavorites(response => {
+    /* console.log(response); */
+    if (response.success) {
+        favoritesWidget.clearTable();
+        favoritesWidget.fillTable(response.data);
+        moneyManager.updateUsersList(response.data);
+    }
+});
