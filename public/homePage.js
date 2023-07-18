@@ -84,3 +84,16 @@ favoritesWidget.addUserCallback = data => {
         }
     })
 }
+
+favoritesWidget.removeUserCallback = data => {
+    ApiConnector.removeUserFromFavorites(data, response =>{
+        if (response.success) {
+            favoritesWidget.clearTable();
+            favoritesWidget.fillTable(response.data);
+            moneyManager.updateUsersList(response.data);
+            moneyManager.setMessage(response.success, `Пользователь удален!`);
+        } else {
+            moneyManager.setMessage(response.success, response.error);
+        }
+    })
+}
