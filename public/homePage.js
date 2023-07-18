@@ -71,3 +71,16 @@ ApiConnector.getFavorites(response => {
         moneyManager.updateUsersList(response.data);
     }
 });
+
+favoritesWidget.addUserCallback = data => {
+    ApiConnector.addUserToFavorites(data, response => {
+        if (response.success) {
+            favoritesWidget.clearTable();
+            favoritesWidget.fillTable(response.data);
+            moneyManager.updateUsersList(response.data);
+            moneyManager.setMessage(response.success, `Пользователь добавлен!`);
+        } else {
+            moneyManager.setMessage(response.success, response.error);
+        }
+    })
+}
