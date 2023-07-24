@@ -43,7 +43,7 @@ moneyManager.conversionMoneyCallback = data =>{
     ApiConnector.convertMoney(data, response =>{
         if (response.success) {
             ProfileWidget.showProfile(response.data);
-            moneyManager.setMessage(response.success, `Успешный перевод: ${data.amount} ${data.currency}`);
+            moneyManager.setMessage(response.success, `Конвертация успешна`);
         } else {
             moneyManager.setMessage(response.success, response.error);
         }
